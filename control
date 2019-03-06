@@ -1,6 +1,6 @@
 Package: com.asphyxia.keyboardcolorxii
 Name: keyboardColorXII
-Depends: mobilesubstrate
+Depends: mobilesubstrate com.thebigboss.libcolorpicker
 Version: 1.0.0
 Architecture: iphoneos-arm
 Description: Change your keyboard color on iOS 12!
