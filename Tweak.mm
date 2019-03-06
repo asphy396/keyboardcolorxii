@@ -65,3 +65,4 @@ NSString* keyboardColor = [prefs objectForKey:@"keyboardColor"];
 
 %end
 
+//test
