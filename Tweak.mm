@@ -11,7 +11,13 @@ NSString* keyboardColor = [prefs objectForKey:@"keyboardColor"];
 @end
 @interface UIKBRenderConfig
 @property (nonatomic, assign, readwrite) BOOL lightKeyboard;
+@property (nonatomic, assign, readwrite) BOOL whiteText;
 @end
+/*
+@interface UIKBKeyView
+@property (nonatomic, strong, readwrite, setter=_setInteractionTintColor:) UIColor *_interactionTintColor;
+@end
+*/
 
 %hook _UIKBCompatInputView
 
@@ -22,7 +28,17 @@ NSString* keyboardColor = [prefs objectForKey:@"keyboardColor"];
 
 }
 %end
+/*
+%hook *_interactionTintColor
 
+-(void) layoutSubviews {
+	
+	%orig;
+	self.backgroundColor = LCPParseColorString(keyboardColor, @"#db5376");
+
+}
+%end
+*/
 
 %hook UIKBSplitImageView
 
@@ -34,6 +50,7 @@ NSString* keyboardColor = [prefs objectForKey:@"keyboardColor"];
 }
 %end
 
+
 %hook UIKBRenderConfig
 
 -(BOOL)lightKeyboard {
@@ -42,4 +59,9 @@ NSString* keyboardColor = [prefs objectForKey:@"keyboardColor"];
 
 }
 
+-(BOOL) whiteText {
+	return 1;
+}
+
 %end
+
