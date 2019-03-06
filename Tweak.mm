@@ -3,8 +3,12 @@
 
 NSDictionary* prefs = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.asphyxia.keyboardcolorxii.plist"];
 NSString* keyboardColor = [prefs objectForKey:@"keyboardColor"];
-@interface _UIKBCompatInputView
+/*@interface _UIKBCompatInputView
 @property (nonatomic, copy, readwrite) UIColor *backgroundColor;
+@end
+*/
+@interface UIKBInputBackdropView
+-(void)_setRenderConfig:(id)arg1
 @end
 @interface UIKBSplitImageView
 @property (nonatomic, copy, readwrite) UIColor *backgroundColor;
@@ -18,7 +22,7 @@ NSString* keyboardColor = [prefs objectForKey:@"keyboardColor"];
 @property (nonatomic, strong, readwrite, setter=_setInteractionTintColor:) UIColor *_interactionTintColor;
 @end
 */
-
+/*
 %hook _UIKBCompatInputView
 
 -(void) layoutSubviews {
@@ -28,6 +32,7 @@ NSString* keyboardColor = [prefs objectForKey:@"keyboardColor"];
 
 }
 %end
+*/
 /*
 %hook *_interactionTintColor
 
@@ -65,4 +70,11 @@ NSString* keyboardColor = [prefs objectForKey:@"keyboardColor"];
 
 %end
 
-//test
+%hook UIKBInputBackgroundView
+
+-(void)_setRenderConfig:(id)arg1 {
+    
+}
+
+%end
+
